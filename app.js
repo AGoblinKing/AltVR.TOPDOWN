@@ -1,6 +1,6 @@
 "use strict";
 
-import cube from "./Entity/Cube";
+import Cube from "./Entity/Cube";
 
 var sim = altspace.utilities.Simulation(),
     instanceBase = altspace.utilities.sync.getInstance({ 
@@ -8,7 +8,7 @@ var sim = altspace.utilities.Simulation(),
     }),
     sceneSync = altspace.utilities.behaviors.SceneSync(instanceBase, {
         instantiators : { 
-            "Cube" : cube(sim)
+            "Cube" : () => new Cube(sim)
         },
         ready(firstInstance) {
             if(firstInstance) {
